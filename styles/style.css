@@ -1,0 +1,11 @@
+#pop_box {
+    border: 1px solid #000;
+    background-color: #bce;
+    width: 300px;
+    height: 300px;
+    position:absolute;
+}
+
+/*#pop_box .hide {
+    display: none;
+}*/

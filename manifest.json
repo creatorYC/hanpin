@@ -17,13 +17,14 @@
         "default_popup": "pages/popup.html"
     },
     "background": {
-        "scripts": ["scripts/background.js"],
+        "scripts": ["scripts/back_bundle.js"],
         "persistent": true
     },
     "content_scripts": [
         {
             "matches": ["http://*/*", "https://*/*"],
-            "js": ["scripts/selection.js"]
+            "js": ["scripts/selection.js"],
+            "css": ["styles/style.css"]
         }
     ],
     // "options_page": "pages/options.html",
