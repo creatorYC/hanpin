@@ -17,12 +17,9 @@ class Select{
     //组装需要发送的消息
     getSelectedMessage(){
         const text = this.getSelectedText();
-        const data = {
-            text: text
-        };
         let message = {
-            info: "",
-            data: data
+            method: "getSelection",     //消息的类别，备用
+            data: text
         };
         return message;
     }
@@ -30,7 +27,7 @@ class Select{
     //发送消息
     setSelectionMessage(message){
         chrome.runtime.sendMessage(message, function(response){
-            console.log(response.farewell);
+            console.log("selection: "+response.farewell);
         });
     }
 
@@ -54,8 +51,6 @@ class Select{
                         document.body.scrollTop || 0;
             var left = (e.clientX - 30 < 0) ? e.clientX + 15 : e.clientX - 30;
             var top = (e.clientY - 30 < 0) ? e.clientY + sh + 15 : e.clientY + sh - 30;
-            // var left = e.clientX;
-            // var top = e.clientY;
             
             setTimeout(function(){  //异步调用，避免onmouseup与onclick事件冲突
                 //有选中的内容
@@ -68,9 +63,10 @@ class Select{
         };
 
         //点击图片
-        // img.onclick = function(e){
-
-        // };
+        img.onclick = function(e){
+            var message = that.getSelectedMessage();
+            that.setSelectionMessage(message);
+        };
         //鼠标松开会触发document的mouseup事件/冒泡
         img.onmouseup = function(e){
             var e = e || window.event;
