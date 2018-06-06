@@ -1,11 +1,38 @@
 #pop_box {
-    border: 1px solid #000;
-    background-color: #bce;
+    border: 1px solid #c2ccd0;
+    background-color: #f3f9f1;
+    border-radius: 25px;
     width: 300px;
-    height: 300px;
-    position:absolute;
+    height: 200px;
+    position: absolute;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-/*#pop_box .hide {
-    display: none;
-}*/
+#head_div {
+    height: 20%;
+    font-size: 20px;
+    text-shadow: 5px 5px 5px #ff461f;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.hr_style {
+    height: 1%;
+    width:100%;
+    background:#00CCFF;
+    background-image:linear-gradient(to right,#0eb83a,#ff2121, #3eede7);
+    overflow:hidden;
+}
+
+#mid_div {
+    height: 70%;
+    word-wrap:break-word;
+    overflow: auto;
+    font-size: 25px;
+    text-align: center;
+    padding: 10px;
+}
+
+#bottom_div {
+    height: 10%;
+}

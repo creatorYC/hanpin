@@ -13,8 +13,6 @@ class Select{
         }else if(document.getSelection){
             return document.getSelection();
         }else if(document.selection){
-            console.log("-------" + document.selection.selectionStart);
-            console.log("-------" + document.selection.selectionEnd);
             return document.selection.createRange().text;
         }else{
             return "";
@@ -38,11 +36,11 @@ class Select{
             // console.log("selection: " + retData);
             if(retData.method === "return_pinyin"){
                 console.log("selection: " + retData.data);
-                var panel = document.getElementById("pop_box");
-                if(panel){
-                    panel.innerText = retData.data;
+                var mid_div = document.getElementById("mid_div");
+                if(mid_div){
+                    mid_div.innerText = retData.data;
                 }else{
-                    panel.innerText = "Hello";
+                    mid_div.innerText = "Hello";
                 }
             } 
         });
@@ -111,7 +109,10 @@ class Select{
             if(panel){  // 移除panel
                 console.log("selection: " + e.target.id);
                 var targetId = e.target.id;
-                if(!targetId || targetId !== "pop_box"){
+                if(!targetId || (targetId !== "pop_box" 
+                                    && targetId !== "head_div"
+                                    && targetId !== "mid_div"
+                                    && targetId !== "bottom_div")){
                     document.body.removeChild(panel);
                 }
             }
@@ -125,6 +126,25 @@ class Select{
         // panel.innerText = "Hello World!";
         panel.style.left = left + "px";
         panel.style.top = top + "px";
+        // 弹出框头部
+        var headDiv = document.createElement('div');
+        headDiv.id = "head_div";
+        headDiv.innerText = "拼音-Pinyin";
+        panel.appendChild(headDiv);
+
+        var hrDiv = document.createElement('div');
+        hrDiv.className = "hr_style";
+        panel.appendChild(hrDiv);
+
+        // 弹出框中部
+        var midDiv = document.createElement('div');
+        midDiv.id = "mid_div";
+        panel.appendChild(midDiv);
+        // 弹出框下部
+        var bottomDiv = document.createElement('div');
+        bottomDiv.id = "bottom_div";
+        panel.appendChild(bottomDiv);
+
         document.body.appendChild(panel);
     }
 }
