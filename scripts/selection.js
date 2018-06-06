@@ -1,6 +1,11 @@
 
 class Select{
 
+    constructor(){
+        this.startSelect = 0;   // 选中文字的起始位置
+        this.endSelect = 0;     // 选中文字的结束位置
+    }
+
     // 获取选中内容
     getSelectedText(){
         if(window.getSelection){
@@ -8,6 +13,8 @@ class Select{
         }else if(document.getSelection){
             return document.getSelection();
         }else if(document.selection){
+            console.log("-------" + document.selection.selectionStart);
+            console.log("-------" + document.selection.selectionEnd);
             return document.selection.createRange().text;
         }else{
             return "";
@@ -76,8 +83,6 @@ class Select{
         // 点击图片
         img.onclick = function(e){
             var message = that.getSelectedMessage();
-            
-
             setTimeout(function(){
                 that.setSelectionMessage(message);
             }, 200);
@@ -104,7 +109,11 @@ class Select{
             img.style.display = "none";
             var panel = document.getElementById("pop_box");
             if(panel){  // 移除panel
-                document.body.removeChild(panel);
+                console.log("selection: " + e.target.id);
+                var targetId = e.target.id;
+                if(!targetId || targetId !== "pop_box"){
+                    document.body.removeChild(panel);
+                }
             }
         };
         return this;
