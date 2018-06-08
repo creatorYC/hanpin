@@ -36,3 +36,26 @@
 #bottom_div {
     height: 10%;
 }
+
+#pDiv {
+    width: 500px;
+    height: 250px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    position: relative;
+    top: 50%;   
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+.cDiv {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#btn {
+    background: green;
+}
+
+/*.btnDiv {
+
+}*/

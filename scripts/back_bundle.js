@@ -1929,7 +1929,21 @@ class Background{
                     // console.log("background: " + message.data);
                     var data = message.data;
                     var pinyin = require("pinyin");
-                    var result = pinyin(data);
+                    // 获取自定义的选项
+                    var optionsStr = localStorage.options.split(",");
+                    var options = {
+                        heteronym: false,
+                        segment: false
+                    };
+                    for(let i = 0; i < optionsStr.length; i++){
+                        console.log("--" + optionsStr[i]);
+                        if(optionsStr[i] === "heteronym"){ // 多音字
+                            options.heteronym = true;
+                        }else if(optionsStr[i] === "segment"){ // 分词
+                            options.segment = true;
+                        }
+                    }
+                    var result = pinyin(data, options);
                     console.log("background: " + result);
                     let retData = {
                         method: "return_pinyin",
