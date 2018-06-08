@@ -17,6 +17,6 @@
 
 ### 截图
 - 运行界面
-    ![](https://github.com/creatorYC/hanpin/blob/master/screenshot/img1.png)
+    ![](https://github.com/creatorYC/hanpin/blob/master/screenshot/img1.PNG)
 - 设置界面
-    ![](https://github.com/creatorYC/hanpin/blob/master/screenshot/img2.png)
+    ![](https://github.com/creatorYC/hanpin/blob/master/screenshot/img2.PNG)
