@@ -14,3 +14,9 @@
 
 ### 说明
 我是初学 JavaScript，本着练手的想法做了这样一个 chrome 的扩展，因此有 bug 是在所难免的，有问题的欢迎指正（我也不一定会，哈哈~），在此感谢 [hotoo](https://github.com/hotoo/pinyin) 提供了这么好的接口（就是感觉字库不太全······）
+
+### 截图
+- 运行界面
+    ![](https://github.com/creatorYC/hanpin/blob/master/screenshot/img1.png)
+- 设置界面
+    ![](https://github.com/creatorYC/hanpin/blob/master/screenshot/img2.png)
